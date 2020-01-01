@@ -1,0 +1,40 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   int vectorSize = 0;
+   cin >> vectorSize;
+   
+   vector<int> numList(vectorSize);
+   
+   for (unsigned int i = 0; i < numList.size(); i++) {
+      cin >> numList.at(i);
+   }
+   
+   //make 2 for loops finding the first smallest number 
+   //2nd for loop should use the first smallest number to compare to the other numbers to find the next smallest #
+   
+   int smallest = numList.at(0);
+   for (unsigned int i = 0; i < numList.size(); i++) {
+      if(smallest > numList.at(i)) {
+         smallest = numList.at(i);
+         numList.at(0) = smallest; //move smallest to the front
+      }
+   }
+   
+   
+   
+   int small = numList.at(1);
+   for (unsigned int i = 1; i < numList.size(); i++) {
+      if (numList.at(i) > smallest && numList.at(i) < small) {
+      small = numList.at(i);
+      }
+   
+   }
+
+   cout << smallest << " " << small << endl;
+   
+
+   return 0;
+}
